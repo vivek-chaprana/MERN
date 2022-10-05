@@ -1,2 +1,1 @@
-# expressJS
-Learning ExpressJS.
+# ExpressJS
