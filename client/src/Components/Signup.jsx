@@ -1,7 +1,52 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate   } from "react-router-dom";
 
 const Signup = () => {
+  const history = useNavigate();
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    work: "",
+    password: "",
+    cpassword: "",
+  });
+let name,value;
+  const handleInputs = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+
+    setUserData({...userData,[name]:value});
+  }
+  const postData = async (e) => {
+    e.preventDefault();
+    const {name, email, phone, work, password, cpassword} = userData;
+
+    const res = await fetch("/register",{
+      method : "POST",
+      headers : {
+        "Content-type" : "application/json"
+      },
+      body : JSON.stringify({
+        name, email, phone, work, password, cpassword
+      })
+    });
+    if(res.status === 422 || !res){
+      window.alert("Registration failed.")
+      console.error("Invalid registration.")
+    } else if(res.status === 409){
+      window.alert("User already exists.")
+      console.error("User already exists.")
+    }
+    else{
+      window.alert("Registration successful.")
+      console.info("Registration successful.")
+      history("/login")
+    }
+
+    
+  }
+
   return (
     <>
       <section className="signup">
@@ -9,12 +54,14 @@ const Signup = () => {
           <div className="signup-content">
             <div className="signup-form ">
               <h2 className="form-title">Sign Up</h2>
-              <form action="" className="register-form" id="register-form">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+              <form method="POST" className="register-form" id="register-form">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-account material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.name}
+                    onChange={handleInputs}
                     className="form-control"
                     type="text"
                     name="name"
@@ -23,11 +70,13 @@ const Signup = () => {
                     placeholder="Your name"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-email material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.email}
+                    onChange={handleInputs}
                     type="email"
                     name="email"
                     id="email"
@@ -36,11 +85,13 @@ const Signup = () => {
                     className="form-control"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-phone-in-talk material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.phone}
+                    onChange={handleInputs}
                     type="phone"
                     name="phone"
                     id="phone"
@@ -49,11 +100,13 @@ const Signup = () => {
                     className="form-control"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-slideshow material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.work}
+                    onChange={handleInputs}
                     type="text"
                     name="work"
                     id="work"
@@ -62,11 +115,13 @@ const Signup = () => {
                     className="form-control"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.password}
+                    onChange={handleInputs}
                     type="password"
                     name="password"
                     id="password"
@@ -75,11 +130,13 @@ const Signup = () => {
                     className="form-control"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
                   <input
+                  value={userData.cpassword}
+                    onChange={handleInputs}
                     type="password"
                     name="cpassword"
                     id="cpassword"
@@ -91,6 +148,7 @@ const Signup = () => {
 
                 <div className="form-group form-button">
                   <input
+                  onClick={postData}
                     type="submit"
                     value="Register"
                     className="form-submit btn btn-outline-success"

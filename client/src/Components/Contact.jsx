@@ -49,21 +49,21 @@ const Contact = () => {
       <form action="">
       <h2>Get In Touch</h2>
 
-        <div class="row my-3">
-          <div class="col">
+        <div className="row my-3">
+          <div className="col">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Your Name"
               aria-label="Name"
               required="true"
 
             />
           </div>
-          <div class="col">
+          <div className="col">
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               placeholder="Your Email"
               aria-label="Email"
               required="true"
@@ -71,8 +71,8 @@ const Contact = () => {
             />
           </div>
         </div>
-        <div class="input-group">
-  <textarea class="form-control" aria-label="With textarea" placeholder="message"></textarea>
+        <div className="input-group">
+  <textarea className="form-control" aria-label="With textarea" placeholder="message"></textarea>
 </div>  
 
 

@@ -4,7 +4,7 @@ const express = require("express");
 
 //Initialize express
 const app = express();
-const port = 3000;
+const port = 5000;
 
 //Config.env
 dotenv.config({ path: "./config.env" });

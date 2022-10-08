@@ -10,8 +10,8 @@ const Signup = () => {
             <div className="signup-form ">
               <h2 className="form-title">Sign In</h2>
               <form action="" className="register-form" id="register-form">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-email material-icons-name"></i>
                   </span>
                   <input
@@ -23,8 +23,8 @@ const Signup = () => {
                     className="form-control"
                   />
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
                   <input
