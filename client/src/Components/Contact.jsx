@@ -56,7 +56,7 @@ const Contact = () => {
               className="form-control"
               placeholder="Your Name"
               aria-label="Name"
-              required="true"
+              required
 
             />
           </div>
@@ -66,7 +66,7 @@ const Contact = () => {
               className="form-control"
               placeholder="Your Email"
               aria-label="Email"
-              required="true"
+              required
 
             />
           </div>

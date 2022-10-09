@@ -19,23 +19,13 @@ app.use(express.json())
 app.use(require('./Router/auth'))
 
 
-//Middleware
-const middleware = (req, res, next) => {
-  console.log("This is middleware");
-  next();
-};
 
 app.get("/", (req, res) => {
   res.send(`First express application.
     (>‿◠)✌
     `);
 });
-app.get("/about", middleware, (req, res) => {
-  console.log("This is about");
-  res.send(`About Page.
-    (>‿◠)✌
-    `);
-});
+
 app.get("/contact", (req, res) => {
   res.status(200).send(`Contact Page.
     (>‿◠)✌

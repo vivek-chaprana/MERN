@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 require("../db/connection");
 const User = require("../Model/userSchema");
+const authenticate = require("../Middlewares/authenticate");
+
 
 router.get("/", (req, res) => {
   res.send(`First application.
@@ -43,25 +45,33 @@ router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password)
-      res.status(403).send("Please enter all the fields");
+      res.status(403).send("Please fill all the fields.");
     const userLogin = await User.findOne({ email: email });
-    if(userLogin){
+    if (userLogin) {
       const isMatch = await bcrypt.compare(password, userLogin.password);
       let token = await userLogin.generateAuthToken();
-      res.cookie("jwtoken",token,{
+      res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
-        httpOnly:true
-      })
+        httpOnly: true,
+      });
+      
       isMatch
-      ? res.send("Login Sucessfull")
-      : res.status(401).send("Invalid Credentials")
-    }else{
-      res.status(401).send("Invalid Credentials")
+        ? res.send("Login Sucessfull")
+        : res.status(401).send("Invalid Credentials");
+    } else {
+      res.status(401).send("Invalid Credentials");
     }
   } catch (error) {
     console.log(error);
     res.status(500).send("Failed to Sign In, Please try again later.");
   }
+});
+
+//About page
+// https://youtu.be/tq880uEYc14?list=PLwGdqUZWnOp3t3qT7pvAznwUDzKbhEcCc&t=839
+router.get("/about", authenticate, (req, res) => {
+  console.log("This is about");
+  res.send(req.rootUser);
 });
 
 module.exports = router;

@@ -60,6 +60,7 @@ let name,value;
                     <i className="zmdi zmdi-account material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.name}
                     onChange={handleInputs}
                     className="form-control"
@@ -75,6 +76,7 @@ let name,value;
                     <i className="zmdi zmdi-email material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.email}
                     onChange={handleInputs}
                     type="email"
@@ -90,6 +92,7 @@ let name,value;
                     <i className="zmdi zmdi-phone-in-talk material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.phone}
                     onChange={handleInputs}
                     type="phone"
@@ -105,6 +108,7 @@ let name,value;
                     <i className="zmdi zmdi-slideshow material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.work}
                     onChange={handleInputs}
                     type="text"
@@ -120,6 +124,7 @@ let name,value;
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.password}
                     onChange={handleInputs}
                     type="password"
@@ -135,6 +140,7 @@ let name,value;
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
                   <input
+                  required
                   value={userData.cpassword}
                     onChange={handleInputs}
                     type="password"
