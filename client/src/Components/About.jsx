@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import pic from "../Assets/gojo.png";
 import { useNavigate   } from "react-router-dom";
 
 
 const About = () => {
+  const history = useNavigate();
+  const [userData, setUserData] = useState({});
 
   const callAboutPage = async () => {
     try{
@@ -11,19 +13,27 @@ const About = () => {
         method:"GET",
         headers : {
           Accept: "application/json",
-          "Content-type" : "application/json",
-          "Content-Type" : "application/json"
+          "Content-type" : "application/json"
         },
         credentials : "include"
       });
+     const data = await res.json();
+     setUserData(data);
+     
+     
+
+      if(res.status !== 200){
+        console.error(res.error)
+        history('/login')
+      }
 
     } catch (err) {
       console.log(err);
     }
   }
-
   useEffect(()=>{
     callAboutPage();
+    // eslint-disable-next-line
   }, []);
   return (
     <>
@@ -40,15 +50,15 @@ const About = () => {
             </div>
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Vivek Chaprana</h5>
-                <h6 className="text-primary">Web Developer</h6>
+                <h5>{userData.name}</h5>
+                <h6 className="text-primary">{userData.work}</h6>
                 <p className="profile-rating mt-3 mb-5">
                   RANKINGS: <span>1/10</span>
                 </p>
 
                 <ul className="nav nav-tabs" role="tablist">
                   <li className="nav-item">
-                    <a
+                    <a  
                       href="#home"
                       className="nav-link active"
                       id="home-tab"
@@ -138,30 +148,30 @@ const About = () => {
                       <div className="col-md-6 ">
                         <label>User ID</label>
                       </div>
-                      <div className="text-primary col-md-6">124568975236</div>
+                      <div className="text-primary col-md-6">{userData._id}</div>
                       <div className="col-md-6 mt-3">
                         <label>Name</label>
                       </div>
                       <div className="text-primary mt-3 col-md-6">
-                        Vivek Chaprana
+                      {userData.name}
                       </div>
                       <div className="col-md-6 mt-3">
                         <label>Email</label>
                       </div>
                       <div className="text-primary mt-3 col-md-6">
-                        vicky@huehue.com
+                      {userData.email}
                       </div>
                       <div className="col-md-6 mt-3">
                         <label>Phone</label>
                       </div>
                       <div className="text-primary mt-3 col-md-6">
-                        9968547320
+                        {userData.phone}
                       </div>
                       <div className="col-md-6 mt-3">
                         <label>Profession</label>
                       </div>
                       <div className="text-primary mt-3 col-md-6">
-                        Web Developer
+                      {userData.work}
                       </div>
                     </div>
                   </div>

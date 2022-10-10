@@ -26,11 +26,7 @@ app.get("/", (req, res) => {
     `);
 });
 
-app.get("/contact", (req, res) => {
-  res.status(200).send(`Contact Page.
-    (>‿◠)✌
-    `);
-});
+
 app.get("/signin", (req, res) => {
   res.status(200).send(`Login.
     (>‿◠)✌
