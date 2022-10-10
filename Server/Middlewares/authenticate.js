@@ -19,7 +19,7 @@ const Authenticate = async (req, res, next) => {
 
     next();
   } catch (err) {
-    res.status(401).send("Unauthorized Login : No token found.");
+    res.status(401).json({Error : "Unauthorized Login : No token found."});
     console.log(err);
   }
 };

@@ -24,19 +24,23 @@ const [name, setName] = useState("")
   useEffect(() => {
     getUserData();
   }, []);
-
+  console.log(name);
+  
   return (
     <>
     <div className='wrap'>
-    <div className="left"></div>
+    <div className="left">
+      {(name) ? 
       <div  className="home">
       <p className='fs-4 fw-bolder m-0 text-primary ' >Welcome</p>
-      {(name !== "") ? <>
       <p className='fs-1 fw-bold m-0 p-0  ' >{name}</p>
       <p className='fs-3 text-dark m-0 p-0 ' >Happy, to see you back</p>
-      </>
+      </div>
       :
-      <p className="fw-bold fs-2">WE ARE THE MERN DEVELOPERS</p>}
+      <div className="home">
+      <p className='fs-4 fw-bolder m-0 text-primary ' >Welcome</p>
+      <p className="fw-bold fs-3 m-0">WE ARE THE MERN DEVELOPERS</p>
+      </div>}
     </div>
     </div>
     </>

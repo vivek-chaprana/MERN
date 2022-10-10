@@ -17,18 +17,23 @@ const About = () => {
         },
         credentials : "include"
       });
+
      const data = await res.json();
      setUserData(data);
-     
-     
 
+      console.log(data)
       if(res.status !== 200){
-        console.error(res.error)
+
         history('/login')
+        console.error(res.error)
+        console.log("I am here too.");
       }
 
     } catch (err) {
       console.log(err);
+      console.log("I am here.");
+      
+      history('/login');
     }
   }
   useEffect(()=>{
