@@ -14,9 +14,6 @@ const [name, setName] = useState("")
       const data = await res.json();
       setName(data.name)
 
-      if (res.status !== 200) {
-        console.error(res.error);
-      }
     } catch (err) {
       console.log(err);
     }

@@ -82,6 +82,7 @@ router.get("/about", authenticate, (req, res) => {
 router.get("/getdata", authenticate, (req, res) => {
   res.send(req.rootUser);
 });
+
 //Contact us page
 router.post("/contact", authenticate, async (req, res) => {
   try {
@@ -106,6 +107,14 @@ router.post("/contact", authenticate, async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+//Logout page
+router.get("/logout",  (req, res) => {
+  console.log("This is logout page.")
+  res.clearCookie('jwtoken')
+  res.status(200).json({Success : "User logged out successfully."})
+  res.end()
 });
 
 module.exports = router;
