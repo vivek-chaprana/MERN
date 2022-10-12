@@ -21,7 +21,6 @@ const [name, setName] = useState("")
   useEffect(() => {
     getUserData();
   }, []);
-  console.log(name);
   
   return (
     <>

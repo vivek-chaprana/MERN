@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import {NavLink} from 'react-router-dom'
+import MobileIco from '../Assets/mobile.svg'
+import EmailIco from '../Assets/inbox.svg'
+import AddressIco from '../Assets/address-card.svg'
 
 const Contact = () => {
   const [userData, setUserData] = useState({
@@ -66,51 +70,56 @@ const Contact = () => {
 
   return (
     <>
-      <div className="contact-info border mx-5">
-        <div className="container-fluid ">
-          <div className="row">
-            <div className=" d-flex justify-content-between ">
-              {/* Phone */}
-              <div className="contact-info-item d-flex justify-content-start align-item-center border border-primary">
-                <img
-                  src="https://img.icons8.com/office/24/000000/iphone.png"
-                  alt=""
-                />
-                <div className="contact-info-content">
-                  <div className="contact-info-title">Phone</div>
-                  <div className="contact-info-text">+91 1111 543 2198</div>
-                </div>
-              </div>
-              {/* Phone */}
-              <div className="contact-info-item d-flex justify-content-start align-item-center border border-primary">
-                <img
-                  src="https://img.icons8.com/office/24/000000/iphone.png"
-                  alt=""
-                />
-                <div className="contact-info-content">
-                  <div className="contact-info-title">Email</div>
-                  <div className="contact-info-text">vicky@huehue.com</div>
-                </div>
-              </div>
-              {/* Phone */}
-              <div className="contact-info-item d-flex justify-content-start align-item-center border border-primary">
-                <img
-                  src="https://img.icons8.com/office/24/000000/iphone.png"
-                  alt=""
-                />
-                <div className="contact-info-content">
-                  <div className="contact-info-title">Address</div>
-                  <div className="contact-info-text">New Delhi, India</div>
-                </div>
-              </div>
-            </div>
+    <div className="bg-light">
+
+    
+    <div className="d-flex  bg-light justify-content-evenly">
+    <div className="d-flex border py-2 px-4 bg-white " >
+      <img src={MobileIco} className='icons me-2'  alt="" />
+      <div className="d-flex flex-column justify-content-center">
+        <p>Phone</p>
+        <p>+91 9999999999 </p>
+      </div>
+    </div>
+    <div className="d-flex border py-2 px-4 bg-white" >
+      <img src={EmailIco} className='icons me-2'  alt="" />
+      <div className=" d-flex flex-column justify-content-center">
+        <p>Email</p>
+        <p>contact.vivekchaprana@gmail.com</p>
+      </div>
+    </div>
+    <div className="d-flex border py-2 px-4 bg-white" >
+      <img src={AddressIco}  className='icons me-2' alt="" />
+      <div className=" d-flex flex-column justify-content-center">
+        <p>Address</p>
+        <p>New Delhi, India.</p>
+      </div>
+    </div>
+      
+    </div>
+
+
+      <div className="container border bg-white py-5 mt-5 ">
+        <form method="POST">
+        <div className="socials mb-3">
+          <h2 className="form-title">Socials</h2>
+          <div className="socialsDiv py-3 d-flex justify-content-evenly">
+
+          <NavLink  className="insta" style={{textDecoration:'none'}} target="_blank" to={{pathname:"https://www.instagram.com/vivekchaprana/"}}>
+          <span><img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="yeKesiJabardastiHai" />Instagram</span>
+          </NavLink>
+          <NavLink  className="github" style={{textDecoration:'none'}} target="_blank" to={{pathname:"https://github.com/vivek-chaprana"}}>
+          <span><img src="https://img.icons8.com/ios-filled/48/000000/github.png" alt="yeKesiJabardastiHai" />Github</span>
+          </NavLink>
+          <NavLink  className="linkedin" style={{textDecoration:'none'}} target="_blank" to={{pathname:"https://www.linkedin.com/in/vivek-chaprana/"}}>
+          <span><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="yeKesiJabardastiHai" />LinkedIn</span>
+          </NavLink>
+          <NavLink className="twitter"  style={{textDecoration:'none'}} target="_blank" to={{pathname:"https://twitter.com/Vickytooop"}}>
+          <span><img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="yeKesiJabardastiHai" />Twitter</span>
+          </NavLink>
           </div>
         </div>
-      </div>
-
-      <div className="container py-5 ">
-        <form method="POST">
-          <h2>Get In Touch</h2>
+          <h2 className="form-title">Get In Touch</h2>
 
           <div className="row my-3">
             <div className="col">
@@ -153,7 +162,7 @@ const Contact = () => {
           <div className="input-group">
             <textarea
             name="message"
-              className="form-control"
+              className="textArea form-control"
               aria-label="With textarea"
               placeholder="Your message"
               onChange={handleInput}
@@ -162,9 +171,10 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <input onClick={sendData} className="my-3 btn btn-primary" type="submit" value="Send" />
+          <input onClick={sendData} className="my-3 px-3 py-1 btn btn-primary" type="submit" value="Send" />
         </form>
       </div>
+    </div>
     </>
   );
 };

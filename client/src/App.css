@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
 .wrap{
     width: 100vw;
     height: 92vh;
+    
+}
+.form-title{
+  font-family: 'ZCOOL XiaoWei', serif !important;
+    
 }
 .home{
+  font-family: 'ZCOOL XiaoWei', serif !important;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,10 +17,107 @@
     text-align: center;
 }
 .navbar{
+    font-family: 'Anurati Regular';
+    text-transform: uppercase;
     height: 8vh;
+
 }
 .left{
     width: 50vw;
     background-color: rgba(0, 0, 255, 0.2);
+    height: 100%;
+}
+.signup{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signupWrap{
+    width: 60%;
+}
+  input:focus{
+    outline: none;
+  }
+.loginImgDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginImage{
+    width   : 100%;
+    height: auto;
+    object-fit: contain;
+}
+a .link{
+    text-decoration: none;
+}
+
+.link:hover{
+    opacity: .8;
+}
+.icons{
+    /* filter: in; */
+    width: 30px;
+}
+.socialsDiv{
+    width: 60%;
+}
+.insta , .github, .linkedin, .twitter{
+    padding: 2px 10px 2px 10px;
+    border-radius: 25px;
+}
+
+.insta{
+    border: 2px solid  #C13584;
+    color: #C13584;
+}
+.github{
+    border: 2px solid #6e5494;
+    color: #6e5494;
+}
+.linkedin{
+    border: 2px solid #0077b5;
+    color: #0077b5;
+}
+.twitter{
+    border: 2px solid #1da1f2;
+    color: #1da1f2;
+}
+.insta:hover{
+    color: #C13584;
+}
+.github:hover{
+    color: #6e5494;
+}
+.linkedin:hover{
+    color: #0077b5;
+}
+.twitter:hover{
+    color: #1da1f2;
+}
+.textArea{
+    height: 150px;
+}
+
+.main404{
+    width: 100vw;
+    height: 92vh;
+}
+.bigtext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.bigtext h1{
+    font-size: 300px;
+    color: rgb(0,0,0,0.3);
+}
+.mnasodjasiud{
+    position: absolute;
+    top: 0;
+    width: 100%;
     height: 100%;
 }

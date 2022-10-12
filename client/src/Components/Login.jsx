@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {userContext} from '../App'
+import LoginImg from '../Assets/login.jpg'
 
 const Login = () => {
  // eslint-disable-next-line
@@ -23,7 +24,6 @@ const Login = () => {
         password,
       }),
     });
-    console.log(res);
     if (res.status === 401 || !res) {
       window.alert("Invalid Credentials.");
       console.error("Invalid Credentials.");
@@ -42,16 +42,18 @@ const Login = () => {
 
   return (
     <>
+
+
       <section className="signup">
-        <div className="container mt-5">
-          <div className="signup-content">
+        <div className=" row border signupWrap">
+          <div className="signup-content col-md-6">
             <div className="signup-form ">
-              <h2 className="form-title">Sign In</h2>
+              <h2 className="form-title mb-4 mt-2">Sign In</h2>
               <form method="POST" className="register-form" id="register-form">
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
+                <div className="input-group mb-4 mt-5 ">
+                  <labe className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-email material-icons-name"></i>
-                  </span>
+                  </labe>
                   <input
                     value={email}
                     onChange={(e) => {
@@ -65,7 +67,7 @@ const Login = () => {
                     className="form-control"
                   />
                 </div>
-                <div className="input-group mb-3">
+                <div className="input-group mb-4">
                   <span className="input-group-text" id="basic-addon1">
                     <i className="zmdi zmdi-lock material-icons-name"></i>
                   </span>
@@ -82,7 +84,7 @@ const Login = () => {
                     className="form-control"
                   />
                 </div>
-                <div className="form-group form-button">
+                <div className="form-group form-button ">
                   <input
                     onClick={loginUser}
                     type="submit"
@@ -92,11 +94,25 @@ const Login = () => {
                     id="signup"
                   />
                 </div>
+                <br />
+                <div className="additionalLogin">
+                  <NavLink  style={{ textDecoration: 'none' }} >
+                  <p className="link">
+                  Forgot password ?
+                  </p>
+                  </NavLink>
+                  <p className="d-flex mt-4">Don't have an account ?<NavLink style={{ textDecoration: 'none', padding: '0 0 0 5px' }}  to='/signup'>
+                  <p className="link">
+                  Sign Up
+                  </p>
+                  </NavLink></p>
+                </div>
               </form>
             </div>
-            <div>
-              <NavLink to="/signup">Create an account. </NavLink>
-            </div>
+          </div>
+          <div className="loginImgDiv col-md-6 ">
+          <img src={LoginImg} alt="" className="loginImage" />
+
           </div>
         </div>
       </section>
@@ -105,3 +121,7 @@ const Login = () => {
 };
 
 export default Login;
+
+            // <div>
+            //   <NavLink to="/signup">Create an account. </NavLink>
+            // </div>

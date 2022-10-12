@@ -11,8 +11,8 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
-            Navbar
+          <NavLink className=" ms-5 navbar-brand" to="/">
+            Mern Developers
           </NavLink>
           <button
             className="navbar-toggler"
@@ -30,7 +30,7 @@ const Navbar = () => {
           
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
+                <NavLink className="nav-link " aria-current="page" to="/">
                   Home
                 </NavLink>
               </li>

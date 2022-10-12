@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate   } from "react-router-dom";
+import RegisterImg from '../Assets/register.png'
 
 const Signup = () => {
   const history = useNavigate();
@@ -50,10 +51,10 @@ let name,value;
   return (
     <>
       <section className="signup">
-        <div className="container mt-5">
-          <div className="signup-content">
+        <div className="row signupWrap border">
+          <div className="signup-content col-md-6 ">
             <div className="signup-form ">
-              <h2 className="form-title">Sign Up</h2>
+              <h2 className="form-title mb-4">Sign Up</h2>
               <form method="POST" className="register-form" id="register-form">
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
@@ -152,7 +153,7 @@ let name,value;
                   />
                 </div>
 
-                <div className="form-group form-button">
+                <div className="form-group form-button mt-3">
                   <input
                   onClick={postData}
                     type="submit"
@@ -165,8 +166,15 @@ let name,value;
               </form>
             </div>
             <div>
-              <NavLink to="/login">Already have account? </NavLink>
+            <p className="d-flex mt-4">Already have account?
+              <NavLink style={{textDecoration:'none'}}  to="/login"> 
+              <p className="link ps-1">Sign In</p>
+              </NavLink>
+            </p>
             </div>
+          </div>
+          <div className="loginImgDiv col-md-6">
+            <img src={RegisterImg} className="loginImage" alt="" />
           </div>
         </div>
       </section>
