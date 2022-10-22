@@ -16,4 +16,4 @@
 
 <br/>
 
-### Project is deployed here: https://mern-vicky.herokuapp.com/ .
+#### The project is deployed on heroku, and you can access it by clicking here : https://mern-vicky.herokuapp.com/ .
